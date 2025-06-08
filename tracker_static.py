@@ -9,8 +9,9 @@ def get_position():
     #print(request)
     latitude = request['iss_position']['latitude']
     longitude = request['iss_position']['longitude']
+    timestamp = datetime.datetime.fromtimestamp(request['timestamp'])
     #print(f"Current location: [{latitude},{longitude}]")
-    return [latitude,longitude]
+    return [latitude,longitude,timestamp]
 
 def plotter():
     data = pd.read_csv("coordinates.csv")
