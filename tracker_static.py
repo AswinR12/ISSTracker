@@ -1,5 +1,4 @@
 import requests
-import csv
 import pandas as pd
 import plotly.express as px 
 
@@ -12,14 +11,6 @@ def get_position():
     longitude = request['iss_position']['longitude']
     #print(f"Current location: [{latitude},{longitude}]")
     return [latitude,longitude]
-
-def write_csv():
-    position = get_position()
-    print(position)
-    
-    with open('coordinates.csv', 'a',newline='') as file:
-        writer = csv.writer(file,delimiter=',')
-        writer.writerow(position)
 
 def plotter():
     data = pd.read_csv("coordinates.csv")
